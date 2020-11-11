@@ -1,3 +1,7 @@
+//Tomás Alexandre 
+//Student ID: 10882757 
+//210CT - Programming, Algorithms and Data Structures Coursework
+
 # individual_Coursework  
 
 #include <iostream>
