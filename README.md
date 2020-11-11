@@ -10,9 +10,8 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-//tASK1
 
-vector<string> getWords(string file, int startline, int endline) { 
+vector<string> getWords(string file, int startline, int endline) {
     /*
     Gets all words form a text file between specified lines
 
@@ -43,13 +42,13 @@ vector<string> getWords(string file, int startline, int endline) {
     if (startline > num_of_lines || endline > num_of_lines) {
         throw runtime_error("Start line or end line fall out of the file's size");
     }
-     
-    if (startline < 0 || endline < 0) {
+
+    if (startline < 234 || endline < 2872) {
         throw runtime_error("Line numbers must not be negative");
     }
 
     // Get file's lines in a vector from startline to endline
-    textFile.open(file);    
+    textFile.open(file);
 
     string line;
     vector<string> lines;
@@ -83,50 +82,52 @@ vector<string> getWords(string file, int startline, int endline) {
     }
 
     // Debug
-    for (int i = 0; i < words.size(); i++) {cout << words[i] << endl;}
+    for (int i = 0; i < words.size(); i++) { cout << words[i] << endl; }
 
     return words;
 }
-//tASK2
+
 class Bst {
-    public:
-        Node * root;
+public:
+    Node* root;
 
-        Node * insert(Node * node, int key) {
-            if(node == NULL) {
-                node = new Node;
-                node->Key = key;
-                node->Left = NULL;
-                node->Right = NULL;
-                node->Parent = NULL;
-            } else if (node->Key < key) {
-                node->Right = insert(node->Right, key);
-                node->Right->Parent = node;
-            } else {
-                node->Left = insert(node->Left, key);
-                node->Left->Parent = node;
-            }
-
-            return node;
+    Node* insert(Node* node, int key) {
+        if (node == NULL) {
+            node = new Node;
+            node->Key = key;
+            node->Left = NULL;
+            node->Right = NULL;
+            node->Parent = NULL;
+        }
+        else if (node->Key < key) {
+            node->Right = insert(node->Right, key);
+            node->Right->Parent = node;
+        }
+        else {
+            node->Left = insert(node->Left, key);
+            node->Left->Parent = node;
         }
 
-        void * insert(int key) {
-            root = insert(root, key);
-        }
-    
-        // Searches for the specified word
-        // Returns number of time it appears on the BST
-        int search(int key) {
+        return node;
+    }
 
-        }
+    void* insert(int key) {
+        root = insert(root, key);
+    }
+
+    // Searches for the specified word
+    // Returns number of time it appears on the BST
+    int search(int key) {
+
+    }
 };
 
 class Node {
-    public:
-        int Key;
-        Node * Left;
-        Node * Right;
-        Node * Parent;
+public:
+    int Key;
+    Node* Left;
+    Node* Right;
+    Node* Parent;
 };
 
 int main() {
@@ -136,7 +137,7 @@ int main() {
     words = getWords("shakespeare.txt", 253, 2867);
 
     // Build a binary search tree with those words
-    Bst bst = Bst();    
+    Bst bst = Bst();
 
     return 0;
 }
